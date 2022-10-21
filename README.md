@@ -3,7 +3,9 @@
 - [Learning Mermaid](#learning-mermaid)
   - [What is mermaid diagram](#what-is-mermaid-diagram)
   - [Flowchart](#flowchart)
-    - [Orientation](#orientation)
+    - [Types of Flowcharts](#types-of-flowcharts)
+    - [Create a Flowchart with Mermaid](#create-a-flowchart-with-mermaid)
+    - [Flowchart orientation](#flowchart-orientation)
       - [Default (Top Bottom / Top Down)](#default-top-bottom--top-down)
       - [Bottom Top](#bottom-top)
       - [Left Right](#left-right)
@@ -14,7 +16,9 @@
       - [Thicker Arrow](#thicker-arrow)
       - [Open link](#open-link)
       - [Dotted arrow](#dotted-arrow)
-    - [Adding labels](#adding-labels)
+        - [Adding Label](#adding-label)
+    - [Basic diagram](#basic-diagram)
+    - [Subgraph](#subgraph)
     - [Adding conditions](#adding-conditions)
   - [Sequence diagram](#sequence-diagram)
   - [State diagram](#state-diagram)
@@ -40,21 +44,26 @@ It is a JavaScript based diagramming and charting tool that renders Markdown-ins
 
 ## Flowchart
 
-Flowcharts is a diagram used to represent various flows in many different areas, sad mermaid only covers most basic flowcharts.
+Flowcharts is a diagram used to represent various flows in many different areas
 
-- Types of Flowcharts
-  - Basic - To represent the flow from a process
-  - Fishbone - Convenient to represent steps to take or paths to follow to reach a goal etc..
-  - SDL Diagram - To represent in high-level language procedural diagrams.
-  - Data Flow Diagram - To represent the data flow
-  - Highlight Flowchart - Basically to highlight group of flows, algorithms, processes and data flows  
-  - Audit Diagram - Mostly in Finance area
-  - Business Process Model -  To modeling business and it's processes
-  - System Flowchart - To represent whole system flow
-  - Cross-functional Flowchart - To represent correlation of flow between different areas or services
-  - Workflow Diagram - To represent various flows used to work
+### Types of Flowcharts
 
-### Orientation
+- Basic - To represent the flow from a process
+- Fishbone - Convenient to represent steps to take or paths to follow to reach a goal etc..
+- SDL Diagram - To represent in high-level language procedural diagrams.
+- Data Flow Diagram - To represent the data flow
+- Highlight Flowchart - Basically to highlight group of flows, algorithms, processes and data flows  
+- Audit Diagram - Mostly in Finance area
+- Business Process Model -  To modeling business and it's processes
+- System Flowchart - To represent whole system flow
+- Cross-functional Flowchart - To represent correlation of flow between different areas or services
+- Workflow Diagram - To represent various flows used to work
+
+### Create a Flowchart with Mermaid
+
+Sad mermaid only covers most basic flowcharts, to create
+
+### Flowchart orientation
 
 - TB - top to bottom
 - TD - top-down/ same as top to bottom
@@ -71,7 +80,7 @@ Flowcharts is a diagram used to represent various flows in many different areas,
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph
@@ -87,7 +96,7 @@ A --> B
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph BT
@@ -103,7 +112,7 @@ A --> B
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph LR
@@ -119,7 +128,7 @@ graph LR
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph RL
@@ -196,7 +205,7 @@ graph
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph LR
@@ -212,7 +221,7 @@ graph LR
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph LR
@@ -228,7 +237,7 @@ graph LR
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph LR
@@ -244,61 +253,117 @@ graph LR
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph LR
   A -.-> B
 ```
 
-### Adding labels
+```mermaid
+graph LR
+  A --> B
+```
 
-To add Labels on a flowchart we simply use brackets `[]`
+##### Adding Label
+
+To add labels to a link we use `|` before a node
+
+```mermaid
+graph LR
+A([Start]) -->|Label| B[/Input value/]
+```
+
+### Basic diagram
 
 ~~~txt
   ```mermaid
   graph LR
-    A[Start] --> B[Input value]
-    B --> C[Process values]
-    C --> D[Finish]
+    A([Start]) --> B[/Input value/]
+    B --> C[[Process values]]
+    C --> D[/Output/]
+    D --> E([Finish])
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph LR
-  A[Start] --> B[Input value]
-  B --> C[Process values]
-  C --> D[Finish]
+  A([Start]) --> B[/Input value/]
+  B --> C[[Process values]]
+  C --> D[/Output/]
+  D --> E([Finish])
+```
+
+### Subgraph
+
+**Output:**
+
+~~~txt
+  ```mermaid
+  graph LR
+    subgraph One
+      A --> B
+      B --> C
+    end
+    subgraph Two 
+      D --> E
+      E --> F
+    end
+    subgraph Three
+      C --> G
+      F --> G
+      G --> H
+      H --> I
+    end
+  ```
+~~~
+
+```mermaid
+graph LR
+  subgraph One
+    A --> B
+    B --> C
+  end
+  subgraph Two 
+    D --> E
+    E --> F
+  end
+  subgraph Three
+    C --> G
+    F --> G
+    G --> H
+    H --> I
+  end
 ```
 
 ### Adding conditions  
 
-To add conditions to the flowchart we use curly braces `{}` and to add response we use pipes `||`
+To add conditions to the flowchart we use curly braces `{}` and to add response we use labels
 
 ~~~txt
   ```mermaid
   graph TD
-    A[Start] --> B[Input value]
+    A([Start]) --> B[Input value]
     B --> C{Value is over 18?}
     C --> |Yes| D[Retrieve data]
     C --> |No| E[Decline access]
-    D --> F[Finish]
-    E --> F[Finish]
+    D --> F([Finish])
+    E --> B
   ```
 ~~~
 
-__Output:__
+**Output:**
 
 ```mermaid
 graph TD
-  A[Start] --> B[Input value]
+  A([Start]) --> B[/Input value/]
   B --> C{Value is over 18?}
-  C --> |Yes| D[Retrieve data]
-  C --> |No| E[Decline access]
-  D --> F[Finish]
-  E --> F[Finish]
+  C --> |Yes| D[/Retrieve data/]
+  C ---> |No| E((Decline))
+  D --> F([Finish])
+  E --> B
 ```
 
 ## Sequence diagram
