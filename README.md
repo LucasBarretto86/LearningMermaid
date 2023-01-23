@@ -64,7 +64,7 @@ It is a JavaScript based diagramming and charting tool that renders Markdown-ins
 
 To write comments use the prefix `%%`
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     %% this is a comment that won't be renderer
@@ -84,7 +84,7 @@ graph LR
 
 ### Basic diagram
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     A([Start]) --> B[/Input value/]
@@ -114,7 +114,7 @@ graph LR
 
 #### Default (Top Bottom / Top Down)
 
-~~~txt
+~~~mono
   ```mermaid
   graph
     A --> B
@@ -130,7 +130,7 @@ A --> B
 
 #### Bottom Top
 
-~~~txt
+~~~mono
   ```mermaid
   graph BT
     A --> B
@@ -146,7 +146,7 @@ A --> B
 
 #### Left Right
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     A --> B
@@ -162,7 +162,7 @@ graph LR
 
 #### Right Left
 
-~~~txt
+~~~mono
   ```mermaid
   graph RL
     A --> B
@@ -180,7 +180,7 @@ graph RL
 
 #### Arrow
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     A-->B
@@ -196,7 +196,7 @@ graph LR
 
 #### Thicker Arrow
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     A==>B
@@ -212,7 +212,7 @@ graph LR
 
 #### Open link
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     A --- B
@@ -228,7 +228,7 @@ graph LR
 
 #### Dotted arrow
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     A -.-> B
@@ -260,7 +260,7 @@ A([Start]) -->|Label| B[/Input value/]
 
 Subgraphs can be use to breakdown a flow into blocks
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     subgraph One
@@ -304,7 +304,7 @@ graph LR
 
 Subgraphs can have implicit names, for that we use a label with brackets `[label]`
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     subgraph one
@@ -346,7 +346,7 @@ graph LR
 
 To adjust has to use subgraphs, but I don't get exactly how it works, doesn't seems to be consistent
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     subgraph Main
@@ -388,7 +388,7 @@ graph LR
 
 To add conditions to the flowchart we use curly braces `{}` and to add response we use labels
 
-~~~txt
+~~~mono
   ```mermaid
   graph TD
     A([Start]) --> B[Input value]
@@ -416,7 +416,7 @@ graph TD
 
 Interactions allow us to trigger clicks, but seems it doesn't work on github
 
-~~~txt
+~~~mono
 ```mermaid
 flowchart LR
   A-->B
@@ -446,7 +446,7 @@ flowchart LR
 
 ### Nested nodes
 
-~~~txt
+~~~mono
   ```mermaid
   graph LR
     A 
@@ -483,7 +483,7 @@ Available styles
 
 In this example, a left-to-right graph uses the stepBefore curve style:
 
-```txt
+```mono
   %%{ init: { 'flowchart': { 'curve': 'stepBefore' } } }%%
   graph LR
 ```
@@ -661,7 +661,7 @@ Flowcharts is a diagram used to represent various flows in many different areas,
 
 For instance normal graph have limited use of subgraphs, however flowcharts allows us to have block links and handle better direction within the chart
 
-~~~txt
+~~~mono
   ```mermaid
   flowchart LR
   A --> B
@@ -727,3 +727,4 @@ Sad mermaid only covers most basic flowcharts, to create
 - [Mermaid Documentation](https://mermaid-js.github.io/mermaid/#/)
 - [Mermaid JS - Github](https://github.com/mermaid-js/mermaid)
 - [Flowcharts Concept](https://www.edrawmax.com/flowchart/)
+- [Typora Draw Diagrams with Markdown](https://support.typora.io/Draw-Diagrams-With-Markdown/)
