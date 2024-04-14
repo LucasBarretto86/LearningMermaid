@@ -42,6 +42,8 @@
   - [Class diagram](#class-diagram)
   - [Git graph](#git-graph)
   - [Entity relationship diagram](#entity-relationship-diagram)
+    - [Relationships syntax](#relationships-syntax)
+      - [Relationships aliases](#relationships-aliases)
   - [User journey diagram](#user-journey-diagram)
   - [References](#references)
 
@@ -64,14 +66,16 @@ It is a JavaScript based diagramming and charting tool that renders Markdown-ins
 
 To write comments use the prefix `%%`
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     %% this is a comment that won't be renderer
     A --> B
     B --> C
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -84,7 +88,8 @@ graph LR
 
 ### Basic diagram
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     A([Start]) --> B[/Input value/]
@@ -92,7 +97,8 @@ graph LR
     C --> D[/Output/]
     D --> E([Finish])
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -114,12 +120,14 @@ graph LR
 
 #### Default (Top Bottom / Top Down)
 
-~~~mono
+```mono
+
   ```mermaid
   graph
     A --> B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -130,12 +138,14 @@ A --> B
 
 #### Bottom Top
 
-~~~mono
+```mono
+
   ```mermaid
   graph BT
     A --> B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -146,12 +156,14 @@ A --> B
 
 #### Left Right
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     A --> B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -162,12 +174,14 @@ graph LR
 
 #### Right Left
 
-~~~mono
+```mono
+
   ```mermaid
   graph RL
     A --> B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -180,12 +194,14 @@ graph RL
 
 #### Arrow
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     A-->B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -196,12 +212,14 @@ graph LR
 
 #### Thicker Arrow
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     A==>B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -212,12 +230,14 @@ graph LR
 
 #### Open link
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     A --- B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -228,12 +248,14 @@ graph LR
 
 #### Dotted arrow
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     A -.-> B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -260,7 +282,8 @@ A([Start]) -->|Label| B[/Input value/]
 
 Subgraphs can be use to breakdown a flow into blocks
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     subgraph One
@@ -278,7 +301,8 @@ Subgraphs can be use to breakdown a flow into blocks
       H --> I
     end    
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -304,7 +328,8 @@ graph LR
 
 Subgraphs can have implicit names, for that we use a label with brackets `[label]`
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     subgraph one
@@ -322,7 +347,8 @@ Subgraphs can have implicit names, for that we use a label with brackets `[label
     C --> G
     F --> G
   ```
-~~~
+
+```
 
 ```mermaid
 graph LR
@@ -346,7 +372,8 @@ graph LR
 
 To adjust has to use subgraphs, but I don't get exactly how it works, doesn't seems to be consistent
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     subgraph Main
@@ -363,7 +390,8 @@ To adjust has to use subgraphs, but I don't get exactly how it works, doesn't se
       end
     end
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -388,7 +416,8 @@ graph LR
 
 To add conditions to the flowchart we use curly braces `{}` and to add response we use labels
 
-~~~mono
+```mono
+
   ```mermaid
   graph TD
     A([Start]) --> B[Input value]
@@ -398,7 +427,8 @@ To add conditions to the flowchart we use curly braces `{}` and to add response 
     D --> F([Finish])
     E --> B
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -416,19 +446,21 @@ graph TD
 
 Interactions allow us to trigger clicks, but seems it doesn't work on github
 
-~~~mono
-```mermaid
-flowchart LR
-  A-->B
-  B-->C
-  C-->D
-  D-->E
-  click A "https://www.github.com" _blank
-  click B "https://www.github.com" "Open this in a new tab" _blank
-  click C href "https://www.github.com" _blank
-  click D href "https://www.github.com" "Open this in a new tab" _blank
+```mono
+
+  ```mermaid
+  flowchart LR
+    A-->B
+    B-->C
+    C-->D
+    D-->E
+    click A "https://www.github.com" _blank
+    click B "https://www.github.com" "Open this in a new tab" _blank
+    click C href "https://www.github.com" _blank
+    click D href "https://www.github.com" "Open this in a new tab" _blank
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -446,7 +478,8 @@ flowchart LR
 
 ### Nested nodes
 
-~~~mono
+```mono
+
   ```mermaid
   graph LR
     A 
@@ -454,7 +487,8 @@ flowchart LR
     --> C
     --> D 
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -661,7 +695,8 @@ Flowcharts is a diagram used to represent various flows in many different areas,
 
 For instance normal graph have limited use of subgraphs, however flowcharts allows us to have block links and handle better direction within the chart
 
-~~~mono
+```mono
+
   ```mermaid
   flowchart LR
   A --> B
@@ -674,7 +709,8 @@ For instance normal graph have limited use of subgraphs, however flowcharts allo
   C -->   Process
   Process --> H
   ```
-~~~
+
+```
 
 **Output:**
 
@@ -719,6 +755,85 @@ Sad mermaid only covers most basic flowcharts, to create
 ## Git graph
 
 ## Entity relationship diagram
+
+Entity relationship diagram is used to describe relational database structure, it's used to define how data is structure
+
+```mermaid
+---
+title: Order example
+---
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+```
+
+**Practical example:**
+
+```mermaid
+erDiagram
+    ClinicUser }|..o| User : user_id
+    ClinicUser {
+        bigint id
+        bigint clinic_id
+        bigint user_id
+        string roles
+        bool admin
+        int notify_on
+    }
+    User {
+        bigint id
+        string email
+        string first_name
+        string last_name
+    }
+    ClinicUser ||--o| Clinic : clinic_id
+    Clinic {
+      bigint id
+      string name
+      string time_zone
+      string twilio_phone_number
+      string subdomain
+      string address
+      string zip_code
+      string phone_number
+      string city
+      string state
+      string google_analytics_id
+      string facebook_pixel_id
+      bigint subscription_id
+      string facebook_conversion_token
+      string tag_manager_key
+      string reply_to_email
+      string phone_country_code    
+ }
+```
+
+### Relationships syntax
+
+| Value (left) | Value (right) | Meaning      |
+| ------------ | ------------- | ------------ |
+| `|o`         | `o|`          | Zero or one  |
+| `||`         | `||`          | Exactly one  |
+| `}o`         | `o{`          | Zero or more |
+| `}|`         | `|{`          | One or more  |
+
+#### Relationships aliases
+
+| Value (left)   | Value (right)  | Alias for    |
+| -------------- | -------------- | ------------ |
+| `one or zero`  | `one or zero`  | Zero or one  |
+| `zero or one`  | `zero or one`  | Zero or one  |
+| `one or more`  | `one or more`  | One or more  |
+| `one or many`  | `one or many`  | One or more  |
+| `many(1)`      | `many(1)`      | One or more  |
+| `1+`           | `1+`           | One or more  |
+| `zero or more` | `zero or more` | Zero or more |
+| `zero or many` | `zero or many` | Zero or more |
+| `many(0)`      | `many(1)`      | Zero or more |
+| `0+`           | `0+`           | Zero or more |
+| `only one`     | `only one`     | Exactly one  |
+| `1`            | `1`            | Exactly one  |
 
 ## User journey diagram
 
